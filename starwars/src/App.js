@@ -1,8 +1,21 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
+import getStarWarsCharacters from './components/swapi-pull';
 
-const App = () => {
-  // Try to think through what state you'll need for this app before starting. Then build out
+// const App = (props) => {
+
+function App (props) {
+
+  const [character, updateCharacter] = useState([]);
+
+  useEffect(() => {
+    getStarWarsCharacters(updateCharacter);
+  }, []);
+
+  
+
+  
+    // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
 
   // Fetch characters from the star wars api in an effect hook. Remember, anytime you have a 
@@ -12,6 +25,9 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
+
+      
+
     </div>
   );
 }
