@@ -1,25 +1,37 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import GetStarWarsCharacters from './components/swapi-pull';
-import {Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button} from 'reactstrap';
 import styled from 'styled-components';
 
 
-// const App = (props) => {
 
+//Stylings
 const SWCardContainer = styled.div`
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
-  width: 80%;
+  width: 95%;
+  margin: 0 auto;
+  justify-content: center;
 `
 
 const SWCard = styled.div`
-  width: 25%;
+  width: 28%;
   height: 200px;
-  border: 1px solid red;
+  border: 1px solid #443e3e;
+  margin: 10px 2%;
+  background: #443e3e;
+  box-shadow: 5px 2.5px;
+  border-radius: 10px;
+`
+
+const SWName = styled.div`
+  width: 100%;
+  height: 25%;
+  color: black;
 `
   
-
+//App functionality
 function App () {
 
   const [character, updateCharacter] = useState([]);
@@ -38,6 +50,7 @@ function App () {
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
 
+  //mapping over character array to create cards for each character
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
@@ -46,8 +59,15 @@ function App () {
           console.log(item)
           return (
           <SWCard>
-                <h1 key={index}>{item.name}</h1>
-                <h2 key={index+"S"}>{item.height}</h2>
+            <SWName>
+              <p key={index}>{item.name}</p>  
+            </SWName>
+            <SWName>
+              <p key={index}>Gender: {item.gender}</p>  
+            </SWName>
+            <SWName>
+              <p key={index} color={item.eye_color}>Eye Color: {item.eye_color}</p>  
+            </SWName> 
           </SWCard>
           )
         })
@@ -61,24 +81,3 @@ export default App;
 
 
 
-// const Numbers = (props) => {
-//   // STEP 2 - add the imported data to state
-//   const [numberState] = useState(numbers);
- 
-  
-//   return (
-//     <div className="numberButtons">
-//       {/* STEP 3 - Use .map() to iterate over your array data and return a button
-//        component matching the name on the provided file. Pass
-//        it any props needed by the child component*/
-//       numberState.map((item, index) => {
-//         console.log(item)
-//         return <NumberButton setTotal= {props.setTotal} key={index} numbers={item} />
-//         // return <NumberButton setTotal total={item} value={item} index={index} className="numbers" />
-//       })
-//        }
-//     </div>
-//   );
-// };
-
-// export default Numbers
