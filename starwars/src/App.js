@@ -1,10 +1,26 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import GetStarWarsCharacters from './components/swapi-pull';
+import {Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button} from 'reactstrap';
+import styled from 'styled-components';
+
 
 // const App = (props) => {
 
-function App (props) {
+const SWCardContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+`
+
+const SWCard = styled.div`
+  width: 25%;
+  height: 200px;
+  border: 1px solid red;
+`
+  
+
+function App () {
 
   const [character, updateCharacter] = useState([]);
 
@@ -25,14 +41,18 @@ function App (props) {
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-
-      {character.map((item, index) => {
-        console.log(item)
-        return <h2 key={index}>{item.name}</h2>
-      })
-      }
-
-      
+      <SWCardContainer>
+        {character.map((item, index) => {
+          console.log(item)
+          return (
+          <SWCard>
+                <h1 key={index}>{item.name}</h1>
+                <h2 key={index+"S"}>{item.height}</h2>
+          </SWCard>
+          )
+        })
+        }
+      </SWCardContainer>
     </div>
   );
 }
