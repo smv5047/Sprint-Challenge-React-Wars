@@ -1,11 +1,11 @@
 import axios from "axios";
 
 
-function getStarWarsCharacters(setter) {
+function GetStarWarsCharacters(setter) {
     axios.get("https://swapi.co/api/people/")
-    .then(res => console.log(res.data))
+    .then(res => setter(res.data.results))
     .catch(err => console.log(err)
     )
 }
 
-export default getStarWarsCharacters
+export default GetStarWarsCharacters
