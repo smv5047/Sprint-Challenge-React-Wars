@@ -1,35 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import GetStarWarsCharacters from './components/swapi-pull';
-import styled from 'styled-components';
+import {SWCardContainer, SWCard, SWName} from './components/card-styles'
 
-
-
-//Stylings
-const SWCardContainer = styled.div`
-  box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-  width: 95%;
-  margin: 0 auto;
-  justify-content: center;
-`
-
-const SWCard = styled.div`
-  width: 28%;
-  height: 200px;
-  border: 1px solid #443e3e;
-  margin: 10px 2%;
-  background: #443e3e;
-  box-shadow: 5px 2.5px;
-  border-radius: 10px;
-`
-
-const SWName = styled.div`
-  width: 100%;
-  height: 25%;
-  color: black;
-`
   
 //App functionality
 function App () {

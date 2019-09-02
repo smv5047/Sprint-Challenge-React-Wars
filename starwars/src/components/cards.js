@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import styled from "styled-components";
+import React, {useState} from 'react';
+import styled from 'styled-components';
 
 
 
@@ -23,7 +23,7 @@ const SWName = styled.div`
 
 const Cards = (props) => {
     // STEP 2 - add the imported data to state
-    const [cardState] = useState(cards);
+    const [cardState] = useState(props);
    
     
     return (
